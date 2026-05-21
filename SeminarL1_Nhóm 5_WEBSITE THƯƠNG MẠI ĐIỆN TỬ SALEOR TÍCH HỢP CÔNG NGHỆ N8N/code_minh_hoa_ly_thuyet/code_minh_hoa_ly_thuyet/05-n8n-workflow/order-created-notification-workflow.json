@@ -1,0 +1,48 @@
+{
+  "name": "Order Created Notification Demo",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "order-created",
+        "httpMethod": "POST",
+        "responseMode": "lastNode"
+      },
+      "id": "webhook-order-created",
+      "name": "Order Created Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "const order = items[0].json;\nreturn [{\n  json: {\n    to: order.customerEmail,\n    subject: `Xác nhận đơn hàng #${order.orderId}`,\n    message: `Xin chào ${order.customerName}, đơn hàng ${order.orderId} trị giá ${order.total} VND đã được ghi nhận.`\n  }\n}];"
+      },
+      "id": "prepare-email-content",
+      "name": "Prepare Email Content",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "shop@example.com",
+        "toEmail": "={{$json.to}}",
+        "subject": "={{$json.subject}}",
+        "text": "={{$json.message}}"
+      },
+      "id": "send-email",
+      "name": "Send Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Order Created Webhook": {
+      "main": [[{"node": "Prepare Email Content", "type": "main", "index": 0}]]
+    },
+    "Prepare Email Content": {
+      "main": [[{"node": "Send Email", "type": "main", "index": 0}]]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\config\KafkaProducerConfig.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\config\ProductClient.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\config\SecurityConfig.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\controller\OrderController.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\dto\Payload.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\mapper\OrderMapper.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\model\Order.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\model\PaymentMethod.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\OrderServiceApplication.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\producer\OrderEventProducer.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\repository\OrderRepo.java
+C:\Users\DELL\Downloads\ProjectWeb-main\ProjectWeb-main\BE\order-service\src\main\java\vn\tt\practice\orderservice\service\OrderService.java

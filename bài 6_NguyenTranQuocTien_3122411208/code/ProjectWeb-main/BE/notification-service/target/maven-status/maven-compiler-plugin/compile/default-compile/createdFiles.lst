@@ -1,0 +1,5 @@
+vn\tt\practice\notificationservice\service\EmailService.class
+vn\tt\practice\notificationservice\consumer\OrderEventConsumer.class
+vn\tt\practice\notificationservice\NotificationServiceApplication.class
+vn\tt\practice\notificationservice\config\KafkaConsumerConfig.class
+vn\tt\practice\notificationservice\config\UserClient.class

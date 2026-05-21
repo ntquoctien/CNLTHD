@@ -1,0 +1,64 @@
+# Minh họa Docker Compose cho kiến trúc microservices
+# Đây là bản rút gọn để trình bày trong báo cáo, không thay thế docker-compose.yml chính của dự án.
+
+services:
+  api-gateway:
+    build: ./microservices/api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      PRODUCT_SERVICE_URL: http://product-service:3001
+      CART_SERVICE_URL: http://cart-service:3007
+      ORDER_SERVICE_URL: http://order-service:3004
+    depends_on:
+      - product-service
+      - cart-service
+      - order-service
+
+  product-service:
+    build: ./microservices/product-service
+    ports:
+      - "3001:3001"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@postgres:5432/products
+
+  cart-service:
+    build: ./microservices/cart-service
+    ports:
+      - "3007:3007"
+    environment:
+      REDIS_URL: redis://redis:6379
+
+  order-service:
+    build: ./microservices/order-service
+    ports:
+      - "3004:3004"
+    environment:
+      RABBITMQ_URL: amqp://rabbitmq:5672
+
+  my-app:
+    build: ./my-app
+    ports:
+      - "3009:3009"
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:3000
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: products
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
